@@ -9,44 +9,11 @@ import (
 	"time"
 )
 
-var participant1 = &event.Participant{
-	Name:      "Soufiane MOUSSAID",
-	Paid:      40,
-	CreatedAt: time.Now(),
-}
-
-var participant2 = &event.Participant{
-	Name:      "Ahmded Ali",
-	Paid:      60,
-	CreatedAt: time.Now(),
-}
-
-var participant3 = &event.Participant{
-	Name:      "Arbi Benimellal",
-	Paid:      20,
-	CreatedAt: time.Now(),
-}
-
-var participant4 = &event.Participant{
-	Name:      "Allal brahim",
-	Paid:      30,
-	CreatedAt: time.Now(),
-}
-
-var participant5 = &event.Participant{
-	Name:      "Mohsine ramtane",
-	Paid:      10,
-	CreatedAt: time.Now(),
-}
-
 func main() {
 	sharedb, err := event.New()
 	handleErr(err)
 	defer sharedb.Close()
-	/* var pts []*event.Participant
-	pts = append(pts, participant1, participant2, participant3, participant4, participant5) avg = 162.525
 
-	event.SplitBill(pts) */
 	action := flag.String("a", "list", "actions in share lib")
 	help := flag.Bool("h", false, "help understand share lib")
 	paid := flag.Float64("p", 0, "How much participant paid")

@@ -38,7 +38,7 @@ So basically :
     | Norman                 | 300                      | Mar  8 18:02:30       |
     | Mohammed               | 20                       | Feb  8 18:02:30       |
 
-    > Ouput assuming that you created an event `Birthday` & added 3 Participants
+    > Ouput is assuming that you created an event `Birthday` & added 3 Participants
 ## About Go  
 I'm still beginner at Go & this is my first mini side project, done mainly because me & friends always struggle when trying to split the bill
 ```go
