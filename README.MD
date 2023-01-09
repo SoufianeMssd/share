@@ -10,7 +10,7 @@ So basically :
 
 ## How to Run
 * **Clone the repo**
-    ```
+    ```sh
     git clone https://github.com/SoufianeMssd/share.git
     ```
 * **Build the project**
