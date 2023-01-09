@@ -6,25 +6,25 @@ So basically :
 * You add an event
 * You add participant(ppl you want to split the bill with)
 * Finally, You split the bill of the event
-> There is a help(share -h) flag in the app in order to help you
+> *There is a help(share -h) flag in the app in order to know your options*
 
 ## How to Run
-* **Clone the repo**
-    ```sh
+* **Clone the repo**  
+    ```sh  
     git clone https://github.com/SoufianeMssd/share.git
     ```
-* **Build the project**
+* **Build the project**  
     ```go
     go mod tidy
-    ```
+    ```  
     ```go
     go build
     ```
-* **Change directory**
+* **Change directory**  
     ```sh
     cd share
     ```
-* **Execute**
+* **Execute**  
     ```sh
     share
     ```
@@ -38,7 +38,7 @@ So basically :
     | Norman                 | 300                      | Mar  8 18:02:30       |
     | Mohammed               | 20                       | Feb  8 18:02:30       |
 
-    > Ouput is assuming that you created an event `Birthday` & added 3 Participants
+    > *Ouput is assuming that you created an event `Birthday` & added 3 Participants*
 ## About Go  
 I'm still beginner at Go & this is my first mini side project, done mainly because me & friends always struggle when trying to split the bill
 ```go
@@ -49,7 +49,7 @@ func main() {
 }
 ```
 * **Ouput**  
-    <span style="color:yellow">Hello World!</span>
+    <span style="color:gray">Hello World!</span>
 ### Links
 * [Official Doc](https://go.dev/)
 * [Golang for Beginners](https://www.youtube.com/watch?v=YS4e4q9oBaU "FreeCodeCamp Course")
