@@ -51,5 +51,6 @@ func main() {
 * **Ouput**  
     <span style="color:yellow">Hello World!</span>
 ### Links
+* [Official Doc](https://go.dev/)
 * [Golang for Beginners](https://www.youtube.com/watch?v=YS4e4q9oBaU "FreeCodeCamp Course")
 * [Golang build projects](https://www.youtube.com/watch?v=jFfo23yIWac "FreeCodeCamp Course")
