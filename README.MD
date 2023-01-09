@@ -15,6 +15,9 @@ So basically :
     ```
 * **Build the project**
     ```go
+    go mod tidy
+    ```
+    ```go
     go build
     ```
 * **Change directory**
