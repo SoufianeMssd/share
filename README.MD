@@ -1,7 +1,6 @@
 # Share CMD App
 
 ## Introduction
----
 `Share` app is command-line based app used to split the bill  
 So basically :
 * You add an event
@@ -10,7 +9,6 @@ So basically :
 > There is a help(share -h) flag in the app in order to help you
 
 ## How to Run
----
 * **Clone the repo**
     ```
     git clone https://github.com/SoufianeMssd/share.git
@@ -39,7 +37,6 @@ So basically :
 
     > Ouput assuming that you created an event `Birthday` & added 3 Participants
 ## About Go  
----
 I'm still beginner at Go & this is my first mini side project, done mainly because me & friends always struggle when trying to split the bill
 ```go
 package main
