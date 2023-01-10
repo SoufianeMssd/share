@@ -90,9 +90,12 @@ func SplitBill(pts []*Participant) {
 
 func getTxns(pts []*Participant, sum float64, avg float64) []Transaction {
 	var txns []Transaction
-	diff := avg - pts[0].Paid
-	for diff > 0 && len(pts) > 1 {
-		txn := getTxn(pts, avg)
+
+	for len(pts) > 1 {
+		txn, err := getTxn(pts, avg)
+		if err != nil {
+			break
+		}
 		txns = append(txns, txn)
 		pts = pts[1:]
 		sortPts(pts)
@@ -100,23 +103,25 @@ func getTxns(pts []*Participant, sum float64, avg float64) []Transaction {
 	return txns
 }
 
-func getTxn(pts []*Participant, avg float64) Transaction {
+func getTxn(pts []*Participant, avg float64) (Transaction, error) {
 	var txn Transaction
 	len := len(pts)
 
 	diff := avg - pts[0].Paid
-	pts[len-1].Paid = pts[len-1].Paid - diff
-	txn.Giver = pts[0]
-	txn.Receiver = pts[len-1]
-	txn.Paid = diff
-	return txn
+	if diff > 0 {
+		pts[len-1].Paid = pts[len-1].Paid - diff
+		txn.Giver = pts[0]
+		txn.Receiver = pts[len-1]
+		txn.Paid = diff
+		return txn, nil
+	}
+	return txn, fmt.Errorf("Empty Transaction")
 }
 
-func sortPts(pts []*Participant) []*Participant {
+func sortPts(pts []*Participant) {
 	sort.Slice(pts, func(i, j int) bool {
 		return pts[i].Paid < pts[j].Paid
 	})
-	return pts
 }
 
 func sum(pts []*Participant) float64 {
