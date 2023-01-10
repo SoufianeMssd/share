@@ -14,7 +14,7 @@ func (shdb *Sharedb) Add(event string, p Participant) error {
 	if err != nil {
 		return err
 	}
-	pts = append(pts, &p)
+	pts = append(pts, p)
 
 	var buffer bytes.Buffer
 	enc := gob.NewEncoder(&buffer)
@@ -34,8 +34,8 @@ func (shdb *Sharedb) AddEvent(event string) error {
 	})
 }
 
-func (shdb *Sharedb) Get(name string) ([]*Participant, error) {
-	var pts []*Participant
+func (shdb *Sharedb) Get(name string) ([]Participant, error) {
+	var pts []Participant
 	err := shdb.db.View(func(txn *badger.Txn) error {
 		item, err := txn.Get([]byte(name))
 		if err != nil {
@@ -75,7 +75,7 @@ func (shdb *Sharedb) Remove(event string) error {
 	})
 }
 
-func SplitBill(pts []*Participant) {
+func SplitBill(pts []Participant) {
 	sum := sum(pts)
 	avg := sum / float64(len(pts))
 	sortPts(pts)
@@ -88,7 +88,7 @@ func SplitBill(pts []*Participant) {
 	}
 }
 
-func getTxns(pts []*Participant, sum float64, avg float64) []Transaction {
+func getTxns(pts []Participant, sum float64, avg float64) []Transaction {
 	var txns []Transaction
 
 	for len(pts) > 1 {
@@ -103,7 +103,7 @@ func getTxns(pts []*Participant, sum float64, avg float64) []Transaction {
 	return txns
 }
 
-func getTxn(pts []*Participant, avg float64) (Transaction, error) {
+func getTxn(pts []Participant, avg float64) (Transaction, error) {
 	var txn Transaction
 	len := len(pts)
 
@@ -118,13 +118,13 @@ func getTxn(pts []*Participant, avg float64) (Transaction, error) {
 	return txn, fmt.Errorf("Empty Transaction")
 }
 
-func sortPts(pts []*Participant) {
+func sortPts(pts []Participant) {
 	sort.Slice(pts, func(i, j int) bool {
 		return pts[i].Paid < pts[j].Paid
 	})
 }
 
-func sum(pts []*Participant) float64 {
+func sum(pts []Participant) float64 {
 	var sum float64 = 0
 	for _, p := range pts {
 		sum = sum + p.Paid
@@ -132,9 +132,9 @@ func sum(pts []*Participant) float64 {
 	return sum
 }
 
-func getRound(item *badger.Item) ([]*Participant, error) {
+func getRound(item *badger.Item) ([]Participant, error) {
 	var buffer bytes.Buffer
-	var pts []*Participant
+	var pts []Participant
 
 	err := item.Value(func(val []byte) error {
 		_, err := buffer.Write(val)

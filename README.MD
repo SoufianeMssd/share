@@ -26,8 +26,9 @@ So basically :
     ```
 * **Execute**  
     ```sh
-    share
+    ./share
     ```
+    > Or add exec *'share'* to your path & execute it anywhere
 
 * **Ouput**  
 

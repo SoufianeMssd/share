@@ -16,7 +16,7 @@ type Sharedb struct {
 
 type Event struct {
 	Name         string
-	Participants []*Participant
+	Participants []Participant
 }
 
 type Participant struct {
@@ -26,7 +26,7 @@ type Participant struct {
 }
 
 type Transaction struct {
-	Giver, Receiver *Participant
+	Giver, Receiver Participant
 	Paid            float64
 }
 
@@ -35,7 +35,7 @@ func (e Participant) String() string {
 	return fmt.Sprintf(Yellow+"| %-30v\t| %-40v\t| %v", e.Name, e.Paid, created+Yellow)
 }
 
-func PrintParticipants(participants []*Participant) {
+func PrintParticipants(participants []Participant) {
 	for _, pt := range participants {
 		fmt.Println(pt)
 	}
