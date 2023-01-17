@@ -10,7 +10,25 @@ import (
 const Yellow = "\033[33m"
 const Green = "\033[32m"
 
-const Share_Desc = "NAME:\n \t \t share - used so that people can share the bill\nEXAMPLE:\n \t \t1) share -a init birthday\n \t \t2) share -a add -p=10 birthday Soufiane\n \t \t3) share -a get birthday\n \t \t4) share -a split birthday\n \t \t5) share -a list or just share without any flags\nDESCRIPTION:\n \t \t1) -a: stands for action & right now the action is init an event (birthday)\n \t \t2) -a: stands for action & right now the action is 'add' a participant in the event\n \t \t   -p: stands for paid & right now the participant 'Soufiane' paid 10MAD(or $ whatever) in the 'birthday' event\n \t \t   -p: if paid is not mentionned like (share -a add birthday Soufiane) then 'Soufiane' paid 0MAD\n \t \t3) -a: the action is 'get' participants in the event\n \t \t4) -a: the action is 'split' the bill of the event 'birthday'\n \t \t4) -a: the action is to list all event with participants"
+const Share_Desc = `
+NAME:
+	share - used so that people can share the bill
+	
+EXAMPLE:
+	share -a init birthday
+	share -a add -p=10 birthday Soufiane
+	share -a get birthday
+	share -a split birthday
+	share -a list or just share without any flags
+
+DESCRIPTION:
+	-a: stands for action & right now the action is init an event (birthday)
+	-a: stands for action & right now the action is 'add' a participant in the event
+	-p: stands for paid & right now the participant 'Soufiane' paid 10MAD(or $ whatever) in the 'birthday' event
+	-p: if paid is not mentionned like (share -a add birthday Soufiane) then 'Soufiane' paid 0MAD
+	-a: the action is 'get' participants in the event
+	-a: the action is 'split' the bill of the event 'birthday'
+	-a: the action is to 'list' all event with participants`
 
 type Sharedb struct {
 	db *badger.DB
