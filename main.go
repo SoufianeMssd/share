@@ -20,7 +20,7 @@ func main() {
 	flag.Parse()
 
 	if *help {
-		fmt.Println("this is help, will be configured later on")
+		fmt.Println(event.Share_Desc)
 	} else {
 		switch *action {
 		case "list":
