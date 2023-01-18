@@ -13,22 +13,22 @@ const Green = "\033[32m"
 const Share_Desc = `
 NAME:
 	share - used so that people can share the bill
-	
+
 EXAMPLE:
-	share -a init birthday
-	share -a add -p=10 birthday Soufiane
-	share -a get birthday
-	share -a split birthday
-	share -a list or just share without any flags
+	1/ share -a init birthday
+	2/ share -a add -p=10 birthday Soufiane
+	3/ share -a get birthday
+	4/ share -a split birthday
+	5/ share -a list or just share without any flags
 
 DESCRIPTION:
-	-a: stands for action & right now the action is init an event (birthday)
-	-a: stands for action & right now the action is 'add' a participant in the event
-	-p: stands for paid & right now the participant 'Soufiane' paid 10MAD(or $ whatever) in the 'birthday' event
-	-p: if paid is not mentionned like (share -a add birthday Soufiane) then 'Soufiane' paid 0MAD
-	-a: the action is 'get' participants in the event
-	-a: the action is 'split' the bill of the event 'birthday'
-	-a: the action is to 'list' all event with participants`
+	1/ -a: stands for action & right now the action is init an event (birthday)
+	2/ -a: stands for action & right now the action is 'add' a participant in the event
+	   -p: stands for paid & right now the participant 'Soufiane' paid 10MAD(or $ whatever) in the 'birthday' event
+	   -p: if paid is not mentionned like (share -a add birthday Soufiane) then 'Soufiane' paid 0MAD
+	3/ -a: the action is 'get' participants in the event
+	4/ -a: the action is 'split' the bill of the event 'birthday'
+	5/ -a: the action is to 'list' all event with participants`
 
 type Sharedb struct {
 	db *badger.DB
